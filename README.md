@@ -34,10 +34,10 @@ engine.start(5000, api_list);
 ```
 
 **Documentation**
-Check out the documentation <a href = "/docs">here</a>.
+Check out the documentation [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
 
 **Sample Project**
-Check out a sample project <a href = "/example">here</a>.
+Check out a sample project [here](https://github.com/matthewgferrari/engine-express/blob/main/example).
 
 ## API
 Name | Type | Description
