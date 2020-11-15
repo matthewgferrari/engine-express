@@ -11,7 +11,7 @@
 ## Index
 
 |  Name| Type |Description|Example|
-|--|--|--|--|--|--|
+|--|--|--|--|
 | port |int |The port number the server will be listening on| 5000
 | api_list|array of api objects|APIs to be served by engine-express| `[api1, api2]`
 | api object|object|Object with properties `routes_path` and `basename`| `{routes_path, basename}`
