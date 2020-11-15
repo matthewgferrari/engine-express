@@ -21,8 +21,10 @@
   "homepage": "https://github.com/matthewgferrari/engine-express#readme",
   "dependencies": {
     "colors": "^1.4.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0"
   }
 }
