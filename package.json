@@ -1,0 +1,28 @@
+{
+  "name": "engine-express",
+  "version": "1.0.1",
+  "description": "Express wrapper to manage multiple APIs from a single server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewgferrari/engine-express.git"
+  },
+  "keywords": [
+    "Express",
+    "Engine",
+    "API",
+    "Combine API"
+  ],
+  "author": "Matthew Ferrari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewgferrari/engine-express/issues"
+  },
+  "homepage": "https://github.com/matthewgferrari/engine-express#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
