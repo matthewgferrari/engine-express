@@ -55,8 +55,8 @@ The specified routes file should export a Router, as well as define as act as th
 ## API
 Name | Type | Description
 -----|------|---------
-start| function| `start` starts the server and serves the APIs. Learn more about the start function <a href = "/documentation">here</a>.
-server| property| `server` property provides direct access to the underlying server. Learn more about the server property <a href = "/documentation">here</a>.
+start| function| `start` starts the server and serves the APIs. Learn more about the start function [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
+server| property| `server` property provides direct access to the underlying server. Learn more about the server property [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
 
 ## Index File Examples
 ### Example with HTTPS
