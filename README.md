@@ -20,30 +20,33 @@ npm install engine-express
 `./index.js`
 ```sh
 const engine = require("engine-express")
+const path = require("path")
 
 var api_list = [
 	{
-		"routes_path":  PATH_TO_API1_ROUTES_FILE,
+		"routes_path":  path.join(__dirname, RELATIVE_PATH_TO_YOUR_API1_ROUTES_FILE),
 		"basename":  "/api1"
 	},
 	{
-		"routes_path":  PATH_TO_API2_ROUTES_FILE,
+		"routes_path":  path.join(__dirname, RELATIVE_PATH_TO_YOUR_API2_ROUTES_FILE),
 		"basename":  "/api2"
 	},
 ]
 
-engine.start(5000, api_list);
+engine.start(PORT_NUMBER, api_list);
 ```
 
 `API1_ROUTES_FILE.js` and `API2_ROUTES_FILE.js`
 ```sh
-const  router = require("express").Router()
+const router = require("express").Router()
 
-router.get('/route1', (req, res) => res.send("Hello World! This is route 1"))
-router.routes("/route2").get((req, res) => res.send("Hello World! This is route 2"))
+router.route("/route").get((req, res) => res.send("Hello World! This is a route"))
+router.get('/*', (req, res) => res.send("Hello World! This is API 2"))
 
 module.exports = router
 ```
+
+Run your code and navigate to localhost:[]
    
 **Documentation:** Check out the documentation [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
 
@@ -81,24 +84,6 @@ var https_creds = {
 }
 
 engine.start(5000, api_list, https_creds);
-```
-### Example with relative file paths
-```sh
-const engine = require("engine-express")
-const path = require("path")
-
-var api_list = [
-	{
-		"routes_path":  path.join(__dirname, RELATIVE_PATH_TO_ROUTES_FILE),
-		"basename":  "/api1"
-	},
-	{
-		"routes_path":  PATH_TO_ROUTES_FILE,
-		"basename":  "/api2"
-	},
-]
-
-engine.start(5000, api_list);
 ```
 ### Example with server configurations
 ```sh
@@ -150,7 +135,7 @@ exports.sendResponse = (req, res) => res.send("Hello World")
 const router = require("express").Router()
 
 router.use('/public', require("./publicRoutes"))
-router.routes('/private', require("./privateRoutes"))
+router.use('/private', require("./privateRoutes"))
 
 module.exports = router
 ```

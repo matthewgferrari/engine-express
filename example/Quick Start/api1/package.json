@@ -1,7 +1,7 @@
 {
-  "name": "api2",
+  "name": "example",
   "version": "1.0.0",
-  "description": "Engine-Express example api2",
+  "description": "Engine-Express server quick start example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

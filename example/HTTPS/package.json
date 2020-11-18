@@ -1,13 +1,13 @@
 {
-  "name": "api1",
+  "name": "example",
   "version": "1.0.0",
-  "description": "Engine-Express example api 1",
+  "description": "Engine-Express server https example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "engine-express": "^1.0.1"
   },
   "author": "",
   "license": "ISC"

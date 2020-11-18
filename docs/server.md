@@ -6,7 +6,7 @@ The server property of the engine-express module provides access to the underlyi
 ## Example
 ```sh
 const engine = require("engine-express")
-
+const cors = require("cors")
 var api_list = [
 	{
 		"routes_path": PATH_TO_ROUTES,
@@ -14,5 +14,5 @@ var api_list = [
 	}
 ]
 
-console.log(engine.server)
+engine.server.use(cors())
 engine.start(5000, api_list)
