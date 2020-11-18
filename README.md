@@ -63,7 +63,6 @@ server| property| `server` property provides direct access to the underlying ser
 ### Example with HTTPS
 ```sh
 const engine = require("engine-express")
-const path = require("path")
 
 var api_list = [
 	{
@@ -88,7 +87,7 @@ engine.start(5000, api_list, https_creds);
 const engine = require("engine-express")
 const fs = require("fs")
 const path = require("path")
-const bodyParser = require("bodyParser")
+const bodyParser = require("body-parser")
 const cors = require("cors")
 const morgan = require("morgan")
 const fileUpload= require("express-fileupload")
@@ -118,7 +117,7 @@ engine.start(5000, api_list);
 const router = require("express").Router()
 const controllers = require("./controllers")
 
-router.get('/route1', controllers.sendResponse)
+router.get('/*', controllers.sendResponse)
 module.exports = router
 ```
 
@@ -141,7 +140,7 @@ module.exports = router
 ```sh
 const publicRouter = require("express").Router()
 
-publicRouter.get("/*",(req, res) => res.send("Hello World"))
+publicRouter.get("/*",(req, res) => res.send("Public page: Hello World"))
 
 module.exports = publicRouter
 ```
@@ -149,7 +148,7 @@ module.exports = publicRouter
 ```sh
 const privateRouter = require("express").Router()
 
-privateRouter.get("/*",(req, res) => res.send("Hello World"))
+privateRouter.get("/*",(req, res) => res.send("Private page: Hello World"))
 
 module.exports = privateRouter
 ```
@@ -158,8 +157,6 @@ module.exports = privateRouter
 ```sh
 const router = require("express").Router()
 
-router.post('/route1/:name?', log, authenticate, respond)
-
 const log = (req, res, next) => {
 	console.log("Request recieved")
 	next()
@@ -167,15 +164,18 @@ const log = (req, res, next) => {
 
 const authenticate = (req, res, next) => {
 	if (Math.random() > .5){
-		console.log("${req.params.name} had Improper credentials")
+		console.log(`${req.params.name ? req.params.name : "An unamed user"} had improper credentials`)
 		res.send("Access denied");
 	}
 	else{
-		console.log("${req.params.name} had proper credentials")
+		console.log(`${req.params.name ? req.params.name : "An unamed user"} had proper credentials`)
 		next()
 	}
 }
 
-const respond = (req, res) => res.send("Hello World")
+const respond = (req, res) => res.send(`${req.params.name ? req.params.name : "An unamed user"} says 'Hello World!'`)
+
+router.get('/:name?', log, authenticate, respond)
+
 module.exports = router
 ```

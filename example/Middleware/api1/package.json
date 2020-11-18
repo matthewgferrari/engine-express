@@ -1,13 +1,13 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "description": "Engine-Express server routing example",
+  "description": "Engine-Express server quick start example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "engine-express": "^1.0.1"
+    "express": "^4.17.1"
   },
   "author": "",
   "license": "ISC"
