@@ -17,7 +17,7 @@ Engine-Express is available as an [npm package](https://www.npmjs.com/package/en
 npm install engine-express
 ```
 ## Quick Start
-`./index`
+`./index.js`
 ```sh
 const engine = require("engine-express")
 
@@ -45,14 +45,11 @@ router.routes("/route2").get((req, res) => res.send("Hello World! This is route 
 module.exports = router
 ```
    
-**Documentation**
-Check out the documentation [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
+**Documentation:** Check out the documentation [here](https://github.com/matthewgferrari/engine-express/blob/main/docs).
 
-**Example Projects**
-All examples in this document can be found fully implemented [here](https://github.com/matthewgferrari/engine-express/blob/main/example).
+**Example Projects:** All examples in this document can be found fully implemented [here](https://github.com/matthewgferrari/engine-express/blob/main/example).
 
-**Overview**
-Engine-Express enables a node server to serve multiple Express APIs from the same port.  If you want to configure the underlying server before listening, simply access `engine.server` to make modifications to the underlying express application. To use the tool and start the server, simply pass the configuration parameters to the start function. Besides the port number and the optional HTTPS credentials, the start function will also take an array of APIs in the format of a basename and path. The basename represents the subdomain of the server where the API should be accessible, and the path represents the location of the routes that make up the API.
+**Overview:** Engine-Express enables a node server to serve multiple Express APIs from the same port.  If you want to configure the underlying server before listening, simply access `engine.server` to make modifications to the underlying express application. To use the tool and start the server, simply pass the configuration parameters to the start function. Besides the port number and the optional HTTPS credentials, the start function will also take an array of APIs in the format of a basename and path. The basename represents the subdomain of the server where the API should be accessible, and the path represents the location of the routes that make up the API.
 
 The specified routes file should export a Router, as well as define as act as the head of the routes. It is possible to both exhaustively define all routes in this file, as well as simply defining routes that filter to subsequent routes in other files. Both of these cases are demonstrated below in the Routes File Examples section.
 ## API
@@ -133,7 +130,7 @@ engine.start(5000, api_list);
 ## Routes File Examples
 ### Example with controllers
 
-`Routes file`
+`ROUTES_FILE.js`
 ```sh
 const router = require("express").Router()
 const controllers = require("./controllers")
@@ -142,13 +139,13 @@ router.get('/route1', controllers.sendResponse)
 module.exports = router
 ```
 
-`Controllers file`
+`./controllers.js`
 ```sh
 exports.sendResponse = (req, res) => res.send("Hello World")
 ```
 ### Example with routing
 
-`Routes file`
+`ROUTES_FILE.js`
 ```sh
 const router = require("express").Router()
 
@@ -157,7 +154,7 @@ router.routes('/private', require("./privateRoutes"))
 
 module.exports = router
 ```
-`Public routes file`
+`./publicRoutes`
 ```sh
 const publicRouter = require("express").Router()
 
@@ -165,7 +162,7 @@ publicRouter.get("/*",(req, res) => res.send("Hello World"))
 
 module.exports = publicRouter
 ```
-`Private routes file`
+`./privateRoutes`
 ```sh
 const privateRouter = require("express").Router()
 
@@ -174,7 +171,7 @@ privateRouter.get("/*",(req, res) => res.send("Hello World"))
 module.exports = privateRouter
 ```
 ### Example with middleware
-`Routes file`
+`ROUTES_FILE.js`
 ```sh
 const router = require("express").Router()
 
