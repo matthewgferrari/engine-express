@@ -17,7 +17,7 @@ Engine-Express is available as an [npm package](https://www.npmjs.com/package/en
 npm install engine-express
 ```
 ## Quick Start
-Index file
+`Index file`
 ```sh
 const engine = require("engine-express")
 
@@ -35,7 +35,7 @@ var api_list = [
 engine.start(5000, api_list);
 ```
 
-Routes file
+`Routes file`
 ```sh
 const  router = require("express").Router()
 
@@ -133,7 +133,7 @@ engine.start(5000, api_list);
 ## Routes File Examples
 ### Example with controllers
 
-Routes file
+`Routes file`
 ```sh
 const router = require("express").Router()
 const controllers = require("./controllers")
@@ -142,13 +142,13 @@ router.get('/route1', controllers.sendResponse)
 module.exports = router
 ```
 
-Controllers file
+`Controllers file`
 ```sh
 exports.sendResponse = (req, res) => res.send("Hello World")
 ```
 ### Example with routing
 
-Routes file
+`Routes file`
 ```sh
 const router = require("express").Router()
 
@@ -157,7 +157,7 @@ router.routes('/private', require("./privateRoutes"))
 
 module.exports = router
 ```
-Public routes file
+`Public routes file`
 ```sh
 const publicRouter = require("express").Router()
 
@@ -165,7 +165,7 @@ publicRouter.get("/*",(req, res) => res.send("Hello World"))
 
 module.exports = publicRouter
 ```
-Private routes file
+`Private routes file`
 ```sh
 const privateRouter = require("express").Router()
 
@@ -174,7 +174,7 @@ privateRouter.get("/*",(req, res) => res.send("Hello World"))
 module.exports = privateRouter
 ```
 ### Example with middleware
-Routes file
+`Routes file`
 ```sh
 const router = require("express").Router()
 
