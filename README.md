@@ -17,17 +17,17 @@ Engine-Express is available as an [npm package](https://www.npmjs.com/package/en
 npm install engine-express
 ```
 ## Quick Start
-`Index file`
+`./index`
 ```sh
 const engine = require("engine-express")
 
 var api_list = [
 	{
-		"routes_path":  PATH_TO_ROUTES_FILE,
+		"routes_path":  PATH_TO_API1_ROUTES_FILE,
 		"basename":  "/api1"
 	},
 	{
-		"routes_path":  PATH_TO_ROUTES_FILE,
+		"routes_path":  PATH_TO_API2_ROUTES_FILE,
 		"basename":  "/api2"
 	},
 ]
@@ -35,7 +35,7 @@ var api_list = [
 engine.start(5000, api_list);
 ```
 
-`Routes file`
+`API1_ROUTES_FILE.js` and `API2_ROUTES_FILE.js`
 ```sh
 const  router = require("express").Router()
 
